@@ -80,11 +80,11 @@
   padding-top: 4px;
 } */
 
-.deadline span {
+/* .deadline span {
   padding: 3px 8px;
   border-radius: 2px;
   display: inline-block;
-}
+} */
 
 /* .urgent {
   background-color: #ffd9d4;
@@ -156,9 +156,9 @@
   box-shadow: 0 4px 5px 0 rgb(0 0 0 / 5%);
 } */
 
-.submit-button:disabled {
+/* .submit-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
-}
+} */
 /* FORM */

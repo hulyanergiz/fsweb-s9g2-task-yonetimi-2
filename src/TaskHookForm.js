@@ -27,33 +27,26 @@ export default function TaskHookForm({ kisiler, submitFn }) {
 
   return (
     <form className="taskForm" onSubmit={handleSubmit(mySubmit)}>
-      <div className="form-line pt-4">
-        <label className="input-label text-sm block pb-1.5" htmlFor="title">
+      <div className="form-line">
+        <label className="input-label" htmlFor="title">
           Başlık
         </label>
         <input
-          className="input-text block w-full border-solid border-2 border-[#ccc] p-1.25 text-sm leading-6 rounded-sm"
+          className="input-text"
           {...register("title", { required: "Task başlığı yazmalısınız" })}
           id="title"
           name="title"
           type="text"
         />
-        {errors.title && (
-          <p className="input-error  text-xs pt-1 text-[#e62b2b]">
-            {errors.title.message}
-          </p>
-        )}
+        {errors.title && <p className="input-error">{errors.title.message}</p>}
       </div>
 
-      <div className="form-line pt-4">
-        <label
-          className="input-label text-sm block pb-1.5"
-          htmlFor="description"
-        >
+      <div className="form-line">
+        <label className="input-label" htmlFor="description">
           Açıklama
         </label>
         <textarea
-          className="input-textarea block w-full border-solid border-2 border-[#ccc] p-1.25 text-sm leading-6 rounded-sm"
+          className="input-textarea"
           {...register("description", {
             required: "Task açıklaması yazmalısınız",
             minLength: {
@@ -66,20 +59,15 @@ export default function TaskHookForm({ kisiler, submitFn }) {
           name="description"
         ></textarea>
         {errors.description && (
-          <p className="input-error text-xs pt-1 text-[#e62b2b]">
-            {errors.description.message}
-          </p>
+          <p className="input-error">{errors.description.message}</p>
         )}
       </div>
 
-      <div className="form-line pt-4">
-        <label className="input-label text-sm block pb-1.5">İnsanlar</label>
+      <div className="form-line">
+        <label className="input-label">İnsanlar</label>
         <div>
           {kisiler.map((p) => (
-            <label
-              className="input-checkbox text-sm py-1.5 pr-2 pl-1 rounded-sm border-solid border-2 border-[#ccc] mr-2 mb-2 inline-flex items-center cursor-pointer"
-              key={p}
-            >
+            <label className="input-checkbox" key={p}>
               <input
                 {...register("people", {
                   required: "Lütfen en az 1 kişi seçin",
@@ -97,18 +85,16 @@ export default function TaskHookForm({ kisiler, submitFn }) {
           ))}
         </div>
         {errors.people && (
-          <p className="input-error  text-xs pt-1 text-[#e62b2b]">
-            {errors.people.message}
-          </p>
+          <p className="input-error">{errors.people.message}</p>
         )}
       </div>
 
-      <div className="form-line pt-4">
-        <label className="input-label text-sm block pb-1.5" htmlFor="deadline">
+      <div className="form-line">
+        <label className="input-label" htmlFor="deadline">
           Son teslim
         </label>
         <input
-          className="input-text block w-full border-solid border-2 border-[#ccc] p-1.25 text-sm leading-6 rounded-sm"
+          className="input-text"
           {...register("deadline", {
             required: "Son teslim tarihi seçmelisiniz",
           })}
@@ -118,18 +104,12 @@ export default function TaskHookForm({ kisiler, submitFn }) {
           min="2023-01-25"
         />
         {errors.deadline && (
-          <p className="input-error  text-xs pt-1 text-[#e62b2b]">
-            {errors.deadline.message}
-          </p>
+          <p className="input-error">{errors.deadline.message}</p>
         )}
       </div>
 
-      <div className="form-line pt-4">
-        <button
-          className="submit-button block w-full border-0 py-2 px-4 bg-[#fecc91] text-[#00000099] cursor-pointer rounded-sm shadow-md"
-          type="submit"
-          disabled={!isValid}
-        >
+      <div className="form-line">
+        <button className="submit-button" type="submit" disabled={!isValid}>
           Kaydet
         </button>
       </div>
